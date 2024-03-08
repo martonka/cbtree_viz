@@ -161,8 +161,7 @@ def generate_example():
     idx = 0
     for k,v in my_list: 
         print("Processing:", idx)
-        k = f'{k:03}'
-        k = str(k)[1:] + str(k)[0]
+        k = str(k % 10) + str(k // 10)
 
         fname = f"{idx:03}_ins_key{k}"
         fpath = os.path.join("/Users/zmartonka/graphs", fname +'.gv')
@@ -182,5 +181,5 @@ def generate_real_error():
     os.system(f"dot -Tpdf {fpath} -o {ifpath}")
 
 if __name__ == "__main__":
-    #generate_example()
-    generate_real_error()
+    generate_example()
+    #generate_real_error()
